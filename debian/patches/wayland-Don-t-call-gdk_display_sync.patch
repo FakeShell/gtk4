@@ -1,0 +1,37 @@
+From: Benjamin Otte <otte@redhat.com>
+Date: Sat, 21 Sep 2024 18:08:46 +0200
+Subject: wayland: Don't call gdk_display_sync()
+
+It is not necessary.
+Worse, it is reentrant and causes all sorts of avoc when processing
+events halfway through initializing the context.
+
+It only exists because in commit 3887548 the Wayland Vulkan code
+was copy/pasted from X11.
+
+Bug: https://gitlab.gnome.org/GNOME/gtk/-/issues/7022
+Bug: https://gitlab.gnome.org/GNOME/gtk/-/issues/7025
+Bug-Debian: https://bugs.debian.org/1081957
+Origin: upstream, 4.16.2, commit:60b149609100038866fab29c391192fb82630663
+---
+ gdk/wayland/gdkvulkancontext-wayland.c | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/gdk/wayland/gdkvulkancontext-wayland.c b/gdk/wayland/gdkvulkancontext-wayland.c
+index 48a7de3..181f46c 100644
+--- a/gdk/wayland/gdkvulkancontext-wayland.c
++++ b/gdk/wayland/gdkvulkancontext-wayland.c
+@@ -40,13 +40,6 @@ gdk_wayland_vulkan_context_create_surface (GdkVulkanContext *context,
+   GdkSurface *surface = gdk_draw_context_get_surface (GDK_DRAW_CONTEXT (context));
+   GdkDisplay *display = gdk_draw_context_get_display (GDK_DRAW_CONTEXT (context));
+ 
+-  /* This is necessary so that Vulkan sees the Surface.
+-   * Usually, vkCreateXlibSurfaceKHR() will not cause a problem to happen as
+-   * it just creates resources, but further calls with the resulting surface
+-   * do cause issues.
+-   */
+-  gdk_display_sync (display);
+-
+   return GDK_VK_CHECK (vkCreateWaylandSurfaceKHR, gdk_vulkan_context_get_instance (context),
+                                                    &(VkWaylandSurfaceCreateInfoKHR) {
+                                                        VK_STRUCTURE_TYPE_WAYLAND_SURFACE_CREATE_INFO_KHR,

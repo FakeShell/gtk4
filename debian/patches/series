@@ -1,3 +1,4 @@
+wayland-Don-t-call-gdk_display_sync.patch
 Revert-tests-Stop-copying-the-tool-tests.patch
 Revert-build-Drop-the-install-tests-option.patch
 testsuite-If-validation-result-is-not-as-expected-log-the.patch
