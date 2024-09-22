@@ -16,9 +16,9 @@ which we also had to revert dropping (in a separate patch)
  testsuite/tools/simplify-3to4    | 47 ----------------------------------------
  testsuite/tools/simplify-3to4.in | 47 ++++++++++++++++++++++++++++++++++++++++
  testsuite/tools/simplify.in      | 47 ++++++++++++++++++++++++++++++++++++++++
- testsuite/tools/validate         | 41 -----------------------------------
- testsuite/tools/validate.in      | 41 +++++++++++++++++++++++++++++++++++
- 11 files changed, 198 insertions(+), 194 deletions(-)
+ testsuite/tools/validate         | 42 -----------------------------------
+ testsuite/tools/validate.in      | 42 +++++++++++++++++++++++++++++++++++
+ 11 files changed, 199 insertions(+), 195 deletions(-)
  delete mode 100755 testsuite/tools/enumerate
  create mode 100644 testsuite/tools/enumerate.in
  delete mode 100755 testsuite/tools/settings
@@ -401,10 +401,10 @@ index 0000000..12b4cea
 +done
 diff --git a/testsuite/tools/validate b/testsuite/tools/validate
 deleted file mode 100755
-index ed9adb6..0000000
+index ae0eb80..0000000
 --- a/testsuite/tools/validate
 +++ /dev/null
-@@ -1,41 +0,0 @@
+@@ -1,42 +0,0 @@
 -#! /bin/bash
 -
 -GTK_BUILDER_TOOL=${GTK_BUILDER_TOOL:-gtk4-builder-tool}
@@ -413,6 +413,7 @@ index ed9adb6..0000000
 -
 -# https://gitlab.freedesktop.org/mesa/mesa/-/issues/10293
 -export LIBGL_ALWAYS_SOFTWARE=true
+-export GALLIUM_DRIVER=softpipe
 -
 -mkdir -p "$TEST_RESULT_DIR"
 -
@@ -448,10 +449,10 @@ index ed9adb6..0000000
 -done
 diff --git a/testsuite/tools/validate.in b/testsuite/tools/validate.in
 new file mode 100644
-index 0000000..d8a3301
+index 0000000..f1e04ec
 --- /dev/null
 +++ b/testsuite/tools/validate.in
-@@ -0,0 +1,41 @@
+@@ -0,0 +1,42 @@
 +#! /bin/bash
 +
 +GTK_BUILDER_TOOL=${GTK_BUILDER_TOOL:-gtk4-builder-tool}
@@ -462,6 +463,7 @@ index 0000000..d8a3301
 +
 +# https://gitlab.freedesktop.org/mesa/mesa/-/issues/10293
 +export LIBGL_ALWAYS_SOFTWARE=true
++export GALLIUM_DRIVER=softpipe
 +
 +shopt -s nullglob
 +TESTS=( "$TEST_DATA_DIR"/*.ui )
