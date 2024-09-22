@@ -1,3 +1,24 @@
+gtk4 (4.16.1+ds-4) unstable; urgency=medium
+
+  * d/p/wayland-Don-t-call-gdk_display_sync.patch:
+    Add patch from upstream to fix crashes under kwin-wayland
+    (Closes: #1081957)
+  * d/p/gdk-Check-some-assertions-on-our-architectures.patch:
+    Drop a patch that only added static assertions.
+    These are now checked in gdk/gdkcolorprivate.h.
+  * d/p/workarounds/testsuite-tools-validate-Use-softpipe-driver-for-validate.patch:
+    Work around additional messages on stderr from llvmpipe now that Mesa
+    is using LLVM 19
+  * d/p/insttests:
+    Split restoration of installed-tests into a topic directory
+  * d/p/gstplayer:
+    Split vendoring of gstplayer into a topic subdirectory
+  * d/p/workarounds:
+    Move all workarounds into a topic subdirectory
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Sun, 22 Sep 2024 13:48:17 +0100
+
 gtk4 (4.16.1+ds-3) experimental; urgency=medium
 
   [ Aurelien Jarno ]
