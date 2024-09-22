@@ -1,8 +1,8 @@
 wayland-Don-t-call-gdk_display_sync.patch
-Revert-tests-Stop-copying-the-tool-tests.patch
-Revert-build-Drop-the-install-tests-option.patch
 testsuite-If-validation-result-is-not-as-expected-log-the.patch
 debian/reftest_compare_surfaces-Report-how-much-the-images-diffe.patch
+insttests/Revert-tests-Stop-copying-the-tool-tests.patch
+insttests/Revert-build-Drop-the-install-tests-option.patch
 debian/reftests-Allow-minor-differences-to-be-tolerated.patch
 debian/Disable-inscription-markup.ui-reftest.patch
 debian/subprojects-Add-gst-player-1.0-as-subporject.patch
