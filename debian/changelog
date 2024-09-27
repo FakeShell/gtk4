@@ -1,3 +1,10 @@
+gtk4 (4.16.2+ds-2) experimental; urgency=medium
+
+  [ Alessandro Astone ]
+  * d/patches: Change default renderer back to ngl (LP: #2082017)
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 27 Sep 2024 17:42:30 +0200
+
 gtk4 (4.16.2+ds-1) unstable; urgency=high
 
   * New upstream release
