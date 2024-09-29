@@ -18,3 +18,6 @@ workarounds/scaling-test-Skip-floating-point-pixel-formats-with-Cairo.patch
 workarounds/scaling-test-Skip-floating-point-texture-tests-on-softpip.patch
 workarounds/memorytexture-test-Ignore-failures-with-FP-softpipe-ngl-o.patch
 gsk-Change-default-renderer-back-to-ngl.patch
+wayland-Redo-cursor-loading.patch
+wayland-Bring-back-the-pointer-viewporter.patch
+wayland-Improve-our-cursor-size-selection.patch
