@@ -1,3 +1,9 @@
+gtk4 (4.16.2+ds-3) unstable; urgency=medium
+
+  * Release to unstable (Mitigates: #1081962)
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sun, 29 Sep 2024 10:25:23 -0400
+
 gtk4 (4.16.2+ds-2) experimental; urgency=medium
 
   [ Alessandro Astone ]
