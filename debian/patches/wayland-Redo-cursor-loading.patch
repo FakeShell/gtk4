@@ -13,6 +13,8 @@ Make the cursor loading code take a floating point scale,
 and return the closest sized cursor that it can find.
 
 (cherry picked from commit 403da9a2d5355c199682b7ba4b8b26e45312e5aa)
+
+Origin: gtk4 main, after 4.16.2
 ---
  gdk/wayland/cursor/wayland-cursor.c     | 62 +++++++++------------------------
  gdk/wayland/cursor/wayland-cursor.h     |  2 +-

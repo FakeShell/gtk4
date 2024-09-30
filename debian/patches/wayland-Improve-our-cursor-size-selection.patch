@@ -10,6 +10,8 @@ that do better when scaled by the viewporter:
 - closest size
 
 (cherry picked from commit 3768c751c5799a03459a7969fbb88d1046fe1c95)
+
+Origin: gtk4 main, after 4.16.2
 ---
  gdk/wayland/cursor/xcursor.c | 51 ++++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 51 insertions(+)

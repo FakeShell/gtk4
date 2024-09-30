@@ -8,6 +8,8 @@ to inform the compositor about the desired pointer size in
 application pixels.
 
 (cherry picked from commit e42014573a89be8b24f911f504780719f65c45ab)
+
+Origin: gtk4 main, after 4.16.2
 ---
  gdk/wayland/gdkcursor-wayland.c         | 20 ++++++++++++++------
  gdk/wayland/gdkdevice-wayland-private.h |  1 +
