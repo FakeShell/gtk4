@@ -1,3 +1,15 @@
+gtk4 (4.16.2+ds-4) unstable; urgency=high
+
+  [ Michael Biebl ]
+  * Fix cursor sizes under Plasma/Wayland when using scaling
+    (Closes: #1083055) (LP: #2083274)
+
+  [ Jeremy Bícha ]
+  * Bump urgency to high since this includes multiple 4.16 regression fixes
+    (Closes: #1083019)
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Mon, 30 Sep 2024 15:16:37 -0400
+
 gtk4 (4.16.2+ds-3) unstable; urgency=medium
 
   * Release to unstable (Mitigates: #1081962)
