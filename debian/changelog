@@ -1,3 +1,9 @@
+gtk4 (4.16.3+ds-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Fri, 04 Oct 2024 14:36:09 -0400
+
 gtk4 (4.16.2+ds-4) unstable; urgency=high
 
   [ Michael Biebl ]
