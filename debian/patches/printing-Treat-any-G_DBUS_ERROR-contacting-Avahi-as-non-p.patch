@@ -1,0 +1,42 @@
+From: Simon McVittie <smcv@debian.org>
+Date: Tue, 15 Oct 2024 15:42:56 +0100
+Subject: printing: Treat any G_DBUS_ERROR contacting Avahi as non-problematic
+
+If we get an error from the message bus (dbus-daemon or dbus-broker),
+for example ServiceUnknown if Avahi is not installed or perhaps
+SpawnFailed if the service is disabled, it is mapped to a GLib GError.
+The errors typically emitted by the message bus belong to the GDBusError
+domain, but if nobody has registered the G_DBUS_ERROR domain yet,
+then they might be mapped to G_IO_ERROR_DBUS_ERROR instead.
+
+Previously, this code ignored G_IO_ERROR_DBUS_ERROR, but emitted a
+warning if the error happens to have been mapped to G_DBUS_ERROR.
+This resulted in action-at-a-distance: an unrelated component
+triggering registration of the G_DBUS_ERROR domain would make printing
+dialogs log the warning. This seems undesirable, and in particular it
+can cause test failures, because GLib's test framework makes warnings
+fatal by default.
+
+Signed-off-by: Simon McVittie <smcv@debian.org>
+Forwarded: https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/7835
+---
+ modules/printbackends/gtkprintbackendcups.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/modules/printbackends/gtkprintbackendcups.c b/modules/printbackends/gtkprintbackendcups.c
+index b08c405..23124ee 100644
+--- a/modules/printbackends/gtkprintbackendcups.c
++++ b/modules/printbackends/gtkprintbackendcups.c
+@@ -3545,9 +3545,10 @@ avahi_service_browser_new_cb (GObject      *source_object,
+     {
+       /*
+        * The creation of ServiceBrowser fails with G_IO_ERROR_DBUS_ERROR
+-       * if Avahi is disabled.
++       * or a GDBusError such as G_DBUS_ERROR_SERVICE_UNKNOWN if Avahi is disabled.
+        */
+-      if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_DBUS_ERROR))
++      if (g_error_matches (error, G_IO_ERROR, G_IO_ERROR_DBUS_ERROR) ||
++          error->domain == G_DBUS_ERROR)
+         g_debug ("%s #%d: %s", g_quark_to_string (error->domain), error->code, error->message);
+       else if (!g_error_matches (error, G_IO_ERROR, G_IO_ERROR_CANCELLED))
+         g_warning ("%s", error->message);
