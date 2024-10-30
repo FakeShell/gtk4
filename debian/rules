@@ -81,7 +81,7 @@ local_recommends =
 ifeq ($(call dpkg_vendor_derives_from_v1,ubuntu),yes)
 configure_flags_deb += -Dprint-cpdb=enabled
 configure_flags_deb += -Dprint-cups=disabled
-local_recommends += cpdb-backend-cups (>= 2.0~b5),
+local_recommends += 'cpdb-backend-cups (>= 2.0~b5)',
 else
 configure_flags_deb += -Dprint-cpdb=disabled
 configure_flags_deb += -Dprint-cups=enabled
