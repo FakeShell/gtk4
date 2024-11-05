@@ -566,19 +566,11 @@ physical_device_supports_extension (VkPhysicalDevice  device,
 {
   VkExtensionProperties *extensions;
   uint32_t n_device_extensions;
-  static gboolean first = TRUE;
 
   GDK_VK_CHECK (vkEnumerateDeviceExtensionProperties, device, NULL, &n_device_extensions, NULL);
 
   extensions = g_newa (VkExtensionProperties, n_device_extensions);
   GDK_VK_CHECK (vkEnumerateDeviceExtensionProperties, device, NULL, &n_device_extensions, extensions);
-
-  if (first)
-    {
-      first = FALSE;
-      for (uint32_t i = 0; i < n_device_extensions; i++)
-        g_print ("%s\n", extensions[i].extensionName);
-    }
 
   for (uint32_t i = 0; i < n_device_extensions; i++)
     {
