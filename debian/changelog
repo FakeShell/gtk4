@@ -1,4 +1,4 @@
-gtk4 (4.16.5+ds-1) UNRELEASED; urgency=medium
+gtk4 (4.16.5+ds-1) experimental; urgency=medium
 
   [ Simon McVittie ]
   * New upstream release
@@ -11,7 +11,7 @@ gtk4 (4.16.5+ds-1) UNRELEASED; urgency=medium
   [ Jeremy Bícha ]
   * Quote cpdb dependency to fix Ubuntu build
 
- -- Simon McVittie <smcv@debian.org>  Tue, 05 Nov 2024 08:59:23 +0000
+ -- Simon McVittie <smcv@debian.org>  Tue, 05 Nov 2024 12:25:51 +0000
 
 gtk4 (4.16.3+ds-2) unstable; urgency=high
 
