@@ -1,5 +1,3 @@
-printing-If-we-cannot-contact-Avahi-debug-log-the-error-m.patch
-printing-Treat-any-G_DBUS_ERROR-contacting-Avahi-as-non-p.patch
 testsuite-If-validation-result-is-not-as-expected-log-the.patch
 workarounds/testsuite-tools-validate-Use-softpipe-driver-for-validate.patch
 debian/reftest_compare_surfaces-Report-how-much-the-images-diffe.patch
