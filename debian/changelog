@@ -1,8 +1,17 @@
 gtk4 (4.16.5+ds-1) UNRELEASED; urgency=medium
 
+  [ Simon McVittie ]
   * New upstream release
+  * d/p/printing-If-we-cannot-contact-Avahi-debug-log-the-error-m.patch,
+    d/p/printing-Treat-any-G_DBUS_ERROR-contacting-Avahi-as-non-p.patch:
+    Drop patches that were applied upstream
+  * d/tests/run-with-display: Send xvfb-run output to stderr
+    (helps: #1082659, #1084230)
 
- -- Simon McVittie <smcv@debian.org>  Tue, 05 Nov 2024 08:51:26 +0000
+  [ Jeremy Bícha ]
+  * Quote cpdb dependency to fix Ubuntu build
+
+ -- Simon McVittie <smcv@debian.org>  Tue, 05 Nov 2024 08:59:23 +0000
 
 gtk4 (4.16.3+ds-2) unstable; urgency=high
 
