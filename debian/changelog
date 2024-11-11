@@ -1,3 +1,13 @@
+gtk4 (4.16.5+ds-2) unstable; urgency=medium
+
+  * d/watch: Only watch for stable (4.even.x) releases
+  * d/gbp.conf: Use upstream/4.16.x branch.
+    4.17.0 has been released, but it's a development release and not
+    suitable for testing/unstable yet.
+  * Release to unstable
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 11 Nov 2024 21:24:58 +0000
+
 gtk4 (4.16.5+ds-1) experimental; urgency=medium
 
   [ Simon McVittie ]
